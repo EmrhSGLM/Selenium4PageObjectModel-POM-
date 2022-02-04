@@ -23,7 +23,7 @@ public class C02_PropertiesIlkClass {
         hotelMyCampPage.passwordBoxElement.sendKeys(ConfigReader.getProperty("HMCValidPassword"));
         hotelMyCampPage.secondLogInElement.click();
         //    Degerleri girildiginde sayfaya basarili sekilde girilebildigini test et
-        Assert.assertTrue(hotelMyCampPage.enterTrueTest.isDisplayed());
+        Assert.assertTrue(hotelMyCampPage.basariliGirisYapildi.isDisplayed());
         Driver.closeDriver();
     }
 }

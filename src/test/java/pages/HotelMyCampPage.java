@@ -3,12 +3,21 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utilities.ConfigReader;
 import utilities.Driver;
 
 public class HotelMyCampPage {
 
     public HotelMyCampPage(){
         PageFactory.initElements(Driver.getDriver(),this);
+    }
+
+    public void girisYap(){
+        Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
+        firstLogInElement.click();
+        userNameBoxElement.sendKeys(ConfigReader.getProperty("HMCValidUsername"));
+        passwordBoxElement.sendKeys(ConfigReader.getProperty("HMCValidPassword"));
+        secondLogInElement.click();
     }
 
     @FindBy(xpath = "(//a[@class='nav-link'])[7]")
@@ -24,10 +33,28 @@ public class HotelMyCampPage {
     public WebElement secondLogInElement;
 
     @FindBy (xpath ="(//a[@class='dropdown-toggle'])[1]")
-    public WebElement enterTrueTest;
+    public WebElement basariliGirisYapildi;
 
     @FindBy (xpath = "//div[@class='validation-summary-errors']")
     public WebElement girisYapilamadiYaziTesti;
+
+    @FindBy (xpath = "//span[.='Hotel Management']")
+    public WebElement hotelManagementLink;
+
+    @FindBy (xpath ="//a[@href='/admin/HotelAdmin']")
+    public WebElement hotelListLinki;
+
+    @FindBy (xpath="//span[.='Add Hotel ']")
+    public WebElement addHotelLinki;
+
+    @FindBy (xpath = "//input[@id='Code']")
+    public WebElement addHotelCodeBox;
+
+    @FindBy ( xpath="//select[@id='IDGroup']")
+    public WebElement addHotelTypeDropdownBox;
+
+    @FindBy (xpath ="//button[@id='btnSubmit']")
+    public WebElement saveButton;
 
     public void bekle(int saniye) {
         try {

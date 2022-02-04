@@ -23,7 +23,7 @@ public class C04_HotelMyCampPositiveLogin {
         hotelMyCampPage.secondLogInElement.click();
         hotelMyCampPage.bekle(3);
         //    Degerleri girildiginde sayfaya basarili sekilde girilebildigini test et
-        Assert.assertTrue(hotelMyCampPage.enterTrueTest.isDisplayed());
+        Assert.assertTrue(hotelMyCampPage.basariliGirisYapildi.isDisplayed());
         Driver.closeDriver();
 
     }
