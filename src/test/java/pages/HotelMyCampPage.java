@@ -21,8 +21,19 @@ public class HotelMyCampPage {
     public WebElement passwordBoxElement;
 
     @FindBy(xpath = "(//input[@id='btnSubmit'])[1]")
-    public WebElement logInElement;
+    public WebElement secondLogInElement;
 
     @FindBy (xpath ="(//a[@class='dropdown-toggle'])[1]")
     public WebElement enterTrueTest;
+
+    @FindBy (xpath = "//div[@class='validation-summary-errors']")
+    public WebElement girisYapilamadiYaziTesti;
+
+    public void bekle(int saniye) {
+        try {
+            Thread.sleep(saniye*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }

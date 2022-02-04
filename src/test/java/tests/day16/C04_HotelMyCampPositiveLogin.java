@@ -20,7 +20,8 @@ public class C04_HotelMyCampPositiveLogin {
         //    test data password : Manager1!
         hotelMyCampPage.userNameBoxElement.sendKeys("manager");
         hotelMyCampPage.passwordBoxElement.sendKeys("Manager1!");
-        hotelMyCampPage.logInElement.click();
+        hotelMyCampPage.secondLogInElement.click();
+        hotelMyCampPage.bekle(3);
         //    Degerleri girildiginde sayfaya basarili sekilde girilebildigini test et
         Assert.assertTrue(hotelMyCampPage.enterTrueTest.isDisplayed());
         Driver.closeDriver();
