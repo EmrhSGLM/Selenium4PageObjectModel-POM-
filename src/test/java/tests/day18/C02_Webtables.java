@@ -1,6 +1,7 @@
 package tests.day18;
 
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.HMCWebTablePage;
 import pages.HotelMyCampPage;
@@ -30,6 +31,7 @@ public class C02_Webtables {
         hotelMyCampPage.girisYap();
 
     }
+    @Ignore
     @Test
     public void table(){
         //● table( ) metodu oluşturun
@@ -56,17 +58,21 @@ public class C02_Webtables {
         List<WebElement> bodyTumDataList = hmcWebTable.tumBodyDatalariLis;
         System.out.println("Tum Body Data List : " + bodyTumDataList.size());
 
-
-
-
     }
 
     @Test
     public void printRows(){
         //● printRows( ) metodu oluşturun //tr
         //            ○ table body’sinde bulunan toplam satir(row) sayısını bulun.
+        //      //tbody//tr
+        hmcWebTable = new HMCWebTablePage();
+        System.out.println(hmcWebTable.satirlarListesi.size());
         //            ○ Table body’sinde bulunan satirlari(rows) konsolda yazdırın.
+        List<WebElement> satirlarWebElementListesi = hmcWebTable.satirlarListesi;
+        satirlarWebElementListesi.stream().forEach(t-> System.out.println(t.getText()));
         //            ○ 4.satirdaki(row) elementleri konsolda yazdırın.
+        System.out.println("4.satir : " + satirlarWebElementListesi.get(3).getText());
+
 
     }
 }

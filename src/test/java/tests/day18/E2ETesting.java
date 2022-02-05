@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HotelMyCampPage;
 import utilities.Driver;
@@ -46,16 +47,19 @@ public class E2ETesting {
                 sendKeys(Keys.TAB).
                 sendKeys(Keys.PAGE_DOWN).
                 sendKeys(faker.internet().emailAddress()).perform();
+        hotelMyCamp.bekle(3);
         Select select = new Select(hotelMyCamp.addHotelTypeDropdownBox);
         select.selectByIndex(1);
 
         //8. Save butonuna tıklayın.
         hotelMyCamp.saveButton.click();
+        hotelMyCamp.bekle(2);
 
-        //9. “Hotel was inserted successfully” textinin göründüğünü test edin.
+        //9. “HotelRoom was inserted successfully” textinin göründüğünü test edin.
+        Assert.assertTrue(hotelMyCamp.saveUyariBoxYazisi.isDisplayed());
         //10. OK butonuna tıklayın.
-
-
-
+        hotelMyCamp.saveUyariBoxOk.click();
+        hotelMyCamp.bekle(3);
+        Driver.closeDriver();
     }
 }
