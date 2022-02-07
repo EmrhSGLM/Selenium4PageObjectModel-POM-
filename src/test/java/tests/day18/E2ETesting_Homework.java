@@ -1,4 +1,4 @@
-package tests;
+package tests.day18;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.Keys;
@@ -13,7 +13,7 @@ public class E2ETesting_Homework {
 
     //1. Tests packagenin altına class olusturun: D18_HotelRoomCreation
     //2. Bir metod olusturun: RoomCreateTest()
-    //3.https://qa environment.concorthotel.com/ adresine gidin.
+    //3. https://qa environment.concorthotel.com/ adresine gidin.
     //4. Username textbox ve password metin kutularını locate edin ve aşağıdaki verileri girin.
     //a. Username: manager
     // b. Password : Manager 1
@@ -51,10 +51,12 @@ public class E2ETesting_Homework {
                 sendKeys(faker.phoneNumber().cellPhone()).
                 sendKeys(Keys.TAB).
                 sendKeys(faker.internet().emailAddress()).
+                sendKeys(Keys.TAB).
+                sendKeys("Hotel Type2").
                 perform();
-        hotelMyCampPage.bekle(3);
-        Select select = new Select(hotelMyCampPage.addHotelTypeDropdownBox);
-        select.selectByIndex(2);
+        //hotelMyCampPage.bekle(3);
+        //Select select = new Select(hotelMyCampPage.addHotelTypeDropdownBox);
+        //select.selectByIndex(2);
 
         //8. Save butonuna basin.
         hotelMyCampPage.saveButton.click();
