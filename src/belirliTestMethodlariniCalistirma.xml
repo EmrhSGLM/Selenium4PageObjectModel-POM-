@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="methodlar">
+    <test name="otel">
+        <classes>
+            <class name="tests.day18.C02_Webtables">
+                <methods>
+                    <include name="login"></include>
+                    <include name="table"></include>
+                    <!-- Method secimi yapilirken
+                     include : secilirse geriye kalanlar exclude gibi olurdu
+                     exclude secilirse geriye kalanlar include olur -->
+                </methods>
+            </class>
+            <class name="tests.day19.C01_WebTableDinamikLocate">
+                <methods>
+                    <include name="satirYazdirTesti"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
+
+<!-- eger bir test icerisinde birden fazla hiyerarsi olusturmamiz gerekerirse
+  uygun kırılma noktasi belirleyip oradan hiyerarsiyi yeniden olusturabiliriz-->

@@ -5,6 +5,7 @@ import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.HMCWebTablePage;
 import pages.HotelMyCampPage;
+import utilities.Driver;
 
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class C02_Webtables {
         hotelMyCampPage.girisYap();
 
     }
-    @Ignore
+
     @Test
     public void table(){
         //● table( ) metodu oluşturun
@@ -72,7 +73,7 @@ public class C02_Webtables {
         satirlarWebElementListesi.stream().forEach(t-> System.out.println(t.getText()));
         //            ○ 4.satirdaki(row) elementleri konsolda yazdırın.
         System.out.println("4.satir : " + satirlarWebElementListesi.get(3).getText());
-
+        Driver.closeDriver();
 
     }
 }

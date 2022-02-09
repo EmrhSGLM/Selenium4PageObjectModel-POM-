@@ -19,7 +19,7 @@ public class C02_WebTableDemoqa {
     //  10. Page sayfasinda bir method olusturun,
     //  Test sayfasindan satir ve sutun sayisini girdigimde bana datayi yazdirsin
 
-    @Test
+    @Test (groups = {"smoke", "regression"})
     public void test(){
         //  1. “https://demoqa.com/webtables” sayfasina gidin
         Driver.getDriver().get(ConfigReader.getProperty("DemoqaUrl"));
