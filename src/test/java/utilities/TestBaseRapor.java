@@ -8,6 +8,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public abstract class TestBaseRapor {
     protected static ExtentReports extentReports; //extent report'a ilk atamayi yapar
@@ -18,16 +20,17 @@ public abstract class TestBaseRapor {
     public void setUpTest() {
         extentReports = new ExtentReports(); // Raporlamayi baslatir
         //rapor oluştuktan sonra raporunuz nereye eklensin istiyorsanız buraya yazıyorsunuz.
-        String filePath = System.getProperty("user.dir") + "/test-output/Rapor.html";
+        String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+        String filePath = System.getProperty("user.dir") + "/test-output/Rapor"+date+".html";
         //oluşturmak istediğimiz raporu (html formatında) başlatıyoruz, filePath ile dosya yolunu belirliyoruz.
         extentHtmlReporter = new ExtentHtmlReporter(filePath);
         extentReports.attachReporter(extentHtmlReporter);
         // İstediğiniz bilgileri buraya ekeyebiliyorsunuz.
         extentReports.setSystemInfo("Enviroment","QA");
         extentReports.setSystemInfo("Browser", ConfigReader.getProperty("browser")); // chrome, firefox
-        extentReports.setSystemInfo("Automation Engineer", "Mehmet");
-        extentHtmlReporter.config().setDocumentTitle("amazon Arama Testi");
-        extentHtmlReporter.config().setReportName("amazon Arama Automation Reports");
+        extentReports.setSystemInfo("Automation Engineer", "Emrah");
+        extentHtmlReporter.config().setDocumentTitle("Son Test");
+        extentHtmlReporter.config().setReportName("TestNG Report");
     }
     // Her test methodundan sonra eğer testte hata varsa, ekran görüntüsü alıp rapora ekliyor
     @AfterMethod(alwaysRun = true)

@@ -55,6 +55,5 @@ public class C01_WindowHandleReusableMethods {
 
         ReusableMethods.getScreenshot("WindowSwitch");
 
-        Driver.closeDriver();
     }
 }
