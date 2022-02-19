@@ -1,4 +1,4 @@
-package tests.practise;
+package tests.practice;
 
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;

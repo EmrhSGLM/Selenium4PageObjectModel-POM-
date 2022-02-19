@@ -1,13 +1,15 @@
-package tests.practise;
+package tests.practice;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.DemoGuruPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.TestBaseRapor;
 
-public class P1_DemoGuruTest {
+public class P1_DemoGuruTest extends TestBaseRapor {
 
     /*
         http://demo.guru99.com/test/drag_drop.html url e git
@@ -19,7 +21,9 @@ public class P1_DemoGuruTest {
    */
     @Test
     public void test01() throws InterruptedException {
+        extentTest=extentReports.createTest("demoGuru Test","drag-drop Test");
         Driver.getDriver().get(ConfigReader.getProperty("demoGuruUrl"));
+        extentTest.info("Url gidildi");
 
         DemoGuruPage demoGuruPage = new DemoGuruPage();
 
@@ -31,7 +35,8 @@ public class P1_DemoGuruTest {
                 dragAndDrop(demoGuruPage.secondnum5000Butonu, demoGuruPage.amount2Box).
                 sendKeys(Keys.PAGE_DOWN).
                 perform();
-        Thread.sleep(3000);
+        extentTest.info("WebElementler istenilen yere gonderildi");
+        //Assert.assertTrue(demoGuruPage);
     }
 
 

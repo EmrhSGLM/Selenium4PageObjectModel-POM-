@@ -1,13 +1,9 @@
-package tests.practise;
+package tests.practice;
 
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.testng.annotations.Test;
 import pages.P2_WebTablePage;
 import utilities.Driver;
-
-import java.util.List;
 
 public class P2_WebTableTest {
 
